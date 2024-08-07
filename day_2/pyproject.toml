@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "rewe-workshop"
+version = "0.1.0"
+description = ""
+authors = ["Moritz Gottschling <moritz.gottschling@ext.aleph-alpha.com>"]
+readme = "README.md"
+# package-mode = false
+packages = [{ include = "rewe_workshop", from = "src" }]
+
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+pydantic = "^2.7.1"
+intelligence-layer = { git = "https://github.com/Aleph-Alpha/intelligence-layer-sdk.git", rev = "v5.0.3" }
+arguably = "^1.3.0"
+datasets = "^2.20.0"
+
+[tool.poetry.scripts]
+start = "src.rewe_workshop.main:main"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
