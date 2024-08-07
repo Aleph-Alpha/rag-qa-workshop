@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "rag_qa_workshop"
+version = "0.1.0"
+description = ""
+authors = ["Moritz Gottschling <moritz.gottschling@ext.aleph-alpha.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+backend = "backend.api:main"
+
+[tool.poetry.dependencies]
+python = "3.12.4"
+fastapi = "^0.110.3"
+intelligence-layer = { git = "https://github.com/Aleph-Alpha/intelligence-layer-sdk.git", tag = "v5.0.3" }
+pydantic-settings = "^2.3.4"
+streamlit = "^1.36.0"
+pypdf2 = "^3.0.1"
+ruff = "^0.5.2"
+pydantic = "^2.8.2"
+ipykernel = "^6.29.5"
+python-dotenv = "^1.0.1"
+python-docx = "^1.1.2"
+uvicorn = "^0.30.3"
+datasets = "^2.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
