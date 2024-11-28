@@ -1,6 +1,14 @@
 import os
 from typing import Iterator
-from intelligence_layer.core.model import LuminousControlModel
+
+import streamlit as st
+from dotenv import load_dotenv, find_dotenv
+from intelligence_layer.connectors import (
+    CollectionPath,
+    DocumentIndexClient,
+    DocumentIndexRetriever,
+)
+from intelligence_layer.core import Llama3InstructModel
 from intelligence_layer.core.text_highlight import ScoredTextHighlight
 from intelligence_layer.core.tracer.tracer import NoOpTracer
 from intelligence_layer.examples import (
@@ -8,15 +16,6 @@ from intelligence_layer.examples import (
     MultipleChunkRetrieverQaOutput,
     RetrieverBasedQaInput,
 )
-import streamlit as st
-
-from intelligence_layer.connectors import (
-    CollectionPath,
-    DocumentIndexClient,
-    DocumentIndexRetriever,
-)
-from dotenv import load_dotenv, find_dotenv
-
 
 load_dotenv(find_dotenv(), override=True)
 
@@ -41,7 +40,7 @@ def run_task(
         threshold=0.5,
     )
 
-    model = LuminousControlModel("luminous-nextgen-7b-control-384k")
+    model = Llama3InstructModel("pharia-1-llm-7b-control")
     task = MultipleChunkRetrieverQa(retriever=retriever, model=model)
 
     task_input = RetrieverBasedQaInput(question=user_prompt)

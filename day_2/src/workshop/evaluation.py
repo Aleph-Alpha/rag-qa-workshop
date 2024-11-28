@@ -1,31 +1,24 @@
-from pathlib import Path
-from typing import Iterable, Optional
-from statistics import mean
 import json
-
-from intelligence_layer.core.model import CompleteInput, ControlModel
-from intelligence_layer.evaluation import (
-    AggregationLogic,
-    AggregationRepository,
-    Example,
-    FileAggregationRepository,
-    SingleOutputEvaluationLogic,
-    aggregation_overviews_to_pandas,
-)
-from intelligence_layer.examples import (
-    RetrieverBasedQaInput,
-    MultipleChunkRetrieverQaOutput,
-)
-
+from typing import Iterable, Optional
 
 from intelligence_layer.core import (
-    FileTracer,
     Llama3InstructModel,
     NoOpTracer,
     Task,
     TaskSpan,
     TextChunk,
 )
+from intelligence_layer.core.model import CompleteInput, ControlModel
+from intelligence_layer.evaluation import (
+    AggregationLogic,
+    Example,
+    SingleOutputEvaluationLogic,
+)
+from intelligence_layer.examples import (
+    RetrieverBasedQaInput,
+    MultipleChunkRetrieverQaOutput,
+)
+from numpy import mean
 from pydantic import BaseModel
 
 

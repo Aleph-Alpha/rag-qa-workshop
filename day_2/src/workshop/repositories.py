@@ -5,7 +5,6 @@ from intelligence_layer.evaluation import (
     FileDatasetRepository,
     FileEvaluationRepository,
     FileRunRepository,
-    Runner,
 )
 from pydantic import BaseModel, ConfigDict
 
